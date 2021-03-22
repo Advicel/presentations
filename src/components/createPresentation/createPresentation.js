@@ -77,6 +77,48 @@ export default function CreatePresentation() {
   };
 
   console.log(presentation);
+
+  const postu4atsyaKVolode = () => {
+    const url = "https://vladimir256.pythonanywhere.com/presentations/";
+    const body = JSON.stringify({
+      name: "Тестовая перзентация1",
+      slides: [{ page: 1 }],
+      //slides: presentation,
+    });
+
+    console.log(body);
+    fetch(url, {
+      body,
+      method: "post",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
+
+  const postu4atsyaKVolode1 = () => {
+    const url = "https://vladimir256.pythonanywhere.com/slides/";
+    const body = JSON.stringify({
+      presentation_id:"4",
+      order_number:1,
+      text:"qwe",
+      size:25
+    });
+
+    console.log(body);
+    fetch(url, {
+      body,
+      method: "post",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.settingsWrapper}>
@@ -106,6 +148,8 @@ export default function CreatePresentation() {
       </div>
 
       <h2 className={styles.pageNumber}>{`${page}/${presentation.length}`}</h2>
+      <Button onClick={postu4atsyaKVolode}>Сохранить презентацию</Button>
+      <Button onClick={postu4atsyaKVolode1}>Сохранить слайд</Button>
     </div>
   );
 }
