@@ -1,9 +1,9 @@
-import Presentation from "./createPresentation";
+import Presentation from "./components/createPresentation/createPresentation";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <h1>presentation</h1>
       <Presentation />
     </div>
   );
